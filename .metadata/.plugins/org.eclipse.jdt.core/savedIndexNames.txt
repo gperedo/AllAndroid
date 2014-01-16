@@ -1,0 +1,8 @@
+INDEX VERSION 1.126+C:\Users\gperedo\gitProject\workplace_allAndroid\AllAndroid\.metadata\.plugins\org.eclipse.jdt.core
+4168036711.index
+3729116812.index
+1624894277.index
+2215957664.index
+1594928061.index
+1810028982.index
+945495568.index
