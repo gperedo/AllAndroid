@@ -1,0 +1,5 @@
+package com.gp.ultimateemailidengine.model;
+
+public interface RenameDialogFragment {
+
+}

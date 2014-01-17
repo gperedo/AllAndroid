@@ -1,0 +1,22 @@
+package com.gp.ultimateemailidengine.main;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+public class InputeData_activity extends Activity {
+	
+	Spinner fname;
+	Spinner sname;
+	EditText separator;
+	EditText dname;
+	EditText beforeNameKeyword;
+	EditText afterNameKeyword;
+
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.mymain);
+	}
+}

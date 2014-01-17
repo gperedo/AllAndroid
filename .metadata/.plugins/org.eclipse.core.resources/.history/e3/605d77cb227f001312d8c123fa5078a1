@@ -1,0 +1,182 @@
+package com.gp.ultimateemailidengine.main;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import com.gp.ultimateemailidengine.model.DomainFormat;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+public class InputDataActivity extends Activity {
+
+	String fname;
+	String sname;
+	String separator;
+	String dname;
+	String beforeNameKeyword;
+	String afterNameKeyword;
+	
+
+	
+	public String getFname() {
+		return fname;
+	}
+
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+	public String getSname() {
+		return sname;
+	}
+
+	public void setSname(String sname) {
+		this.sname = sname;
+	}
+
+	public String getSeparator() {
+		return separator;
+	}
+
+	public void setSeparator(String separator) {
+		this.separator = separator;
+	}
+
+	public String getDname() {
+		return dname;
+	}
+
+	public void setDname(String dname) {
+		this.dname = dname;
+	}
+
+	public String getBeforeNameKeyword() {
+		return beforeNameKeyword;
+	}
+
+	public void setBeforeNameKeyword(String beforeNameKeyword) {
+		this.beforeNameKeyword = beforeNameKeyword;
+	}
+
+	public String getAfterNameKeyword() {
+		return afterNameKeyword;
+	}
+
+	public void setAfterNameKeyword(String afterNameKeyword) {
+		this.afterNameKeyword = afterNameKeyword;
+	}
+
+	DomainFormat checkDomain = new DomainFormat();
+	
+	public List<String> getListNames(){
+		List<String> listNames = new ArrayList<String>();
+		
+		listNames.add("US - First Name");
+		listNames.add("US - Surname");
+		listNames.add("Philippines - First Name");
+		listNames.add("Philippines - Surname");
+		listNames.add("UK - First Name");
+		listNames.add("UK - Surname");
+		listNames.add("India - First Name");
+		listNames.add("India - Surname");
+		listNames.add("Keyword");
+		
+		return listNames;
+	}
+	
+	/**
+	 * Method that Maps the return value of the fields. 
+	 * **/
+	public String getValueFromHashMap(String value){
+				String textFileValue = null;
+		
+				//Using Hashmap
+				HashMap<String, String> hm = new HashMap<String, String>();
+				hm.put("Keyword", "keyword");
+				hm.put("US - First Name", "fname-us.txt");
+				hm.put("US - Surname", "lname-us.txt");
+				hm.put("Philippines - First Name", "fname-phil.txt");
+				hm.put("Philippines - Surname", "lname-phil.txt");
+				hm.put("UK - First Name", "fname-uk.txt");
+				hm.put("UK - Surname", "lname-uk.txt");
+				hm.put("India - First Name", "fname-inda.txt");
+				hm.put("India - Surname", "lname-inda.txt");
+				
+				textFileValue = hm.get(value);
+		return textFileValue;
+	}
+	
+	public ArrayList<String> concatFiles(ArrayList<String> first, ArrayList<String> second){
+		
+		ArrayList<String> al = new ArrayList<String>();
+		
+		for(int i = 0; i < first.size(); i++){
+			for(int j = 0; j < second.size(); j++){
+				al.add(getBeforeNameKeyword()+first.get(i)+getSeparator()+second.get(j)+getAfterNameKeyword()+getDname());
+			}
+		}
+		
+		return al;
+	}
+
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.inputdata_activity);
+		
+		Spinner fname = (Spinner)findViewById(R.id.firstnames_spinner);
+		Spinner sname = (Spinner)findViewById(R.id.surnames_spinner);
+		EditText separator = (EditText)findViewById(R.id.separator_edittext);
+		EditText dname = (EditText)findViewById(R.id.domainname_editText);
+		EditText beforeNameKeyword = (EditText)findViewById(R.id.beforenameKeyword_editText);
+		EditText afterNameKeyword = (EditText)findViewById(R.id.afternameKeyword_editText);
+		
+		Button pass_btn = (Button)findViewById(R.id.pass_btn);
+		
+		ArrayAdapter<String> adapter_fname = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, getListNames());
+		adapter_fname.setDropDownViewResource(android.R.layout.simple_spinner_item);
+		fname.setAdapter(adapter_fname);
+		
+		ArrayAdapter<String> adapter_sname = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, getListNames());
+		adapter_sname.setDropDownViewResource(android.R.layout.simple_spinner_item);
+		sname.setAdapter(adapter_sname);
+		
+		setFname(fname.getSelectedItem().toString());
+		setSname(sname.getSelectedItem().toString());
+		setSeparator(separator.getText().toString());
+		setDname(dname.getText().toString());
+		setBeforeNameKeyword(beforeNameKeyword.getText().toString());
+		setAfterNameKeyword(afterNameKeyword.getText().toString());
+		
+		
+		
+		pass_btn.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				
+				if(getDname().equals(""))
+					Toast.makeText(getApplicationContext(), "Service Name Field Is Empty!", Toast.LENGTH_SHORT).show();
+				
+				if(!checkDomain.validate(getDname()))
+					Toast.makeText(getApplicationContext(), "Invalid Service name!", Toast.LENGTH_SHORT).show();
+				
+				
+				if(true){
+					
+				}
+				
+				
+			}
+			
+		});
+	}
+}

@@ -1,0 +1,76 @@
+package com.gp.ultimateemailidengine.main;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+public class InputDataActivity extends Activity {
+
+	Spinner fname;
+	Spinner sname;
+	EditText separator;
+	EditText dname;
+	EditText beforeNameKeyword;
+	EditText afterNameKeyword;
+	
+	public List<String> getListNames(){
+		List<String> listNames = new ArrayList<String>();
+		
+		listNames.add("US - First Name");
+		listNames.add("US - Surname");
+		listNames.add("Philippines - First Name");
+		listNames.add("Philippines - Surname");
+		listNames.add("UK - First Name");
+		listNames.add("UK - Surname");
+		listNames.add("India - First Name");
+		listNames.add("India - Surname");
+		listNames.add("Keyword");
+		
+		return listNames;
+	}
+	
+	/**
+	 * Method that Maps the return value of the fields. 
+	 * **/
+	public String getValueFromHashMap(String value){
+				String textFileValue = null;
+		
+				//Using Hashmap
+				HashMap<String, String> hm = new HashMap<String, String>();
+				hm.put("Keyword", "keyword");
+				hm.put("US - First Name", "fname-us.txt");
+				hm.put("US - Surname", "lname-us.txt");
+				hm.put("Philippines - First Name", "fname-phil.txt");
+				hm.put("Philippines - Surname", "lname-phil.txt");
+				hm.put("UK - First Name", "fname-uk.txt");
+				hm.put("UK - Surname", "lname-uk.txt");
+				hm.put("India - First Name", "fname-inda.txt");
+				hm.put("India - Surname", "lname-inda.txt");
+				
+				textFileValue = hm.get(value);
+		return textFileValue;
+	}
+
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.inputdata_activity);
+		
+		fname = (Spinner)findViewById(R.id.firstnames_spinner);
+		sname = (Spinner)findViewById(R.id.surnames_spinner);
+		separator = (EditText)findViewById(R.id.separator_edittext);
+		
+		ArrayAdapter<String> adapter_fname = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, getListNames());
+		adapter_fname.setDropDownViewResource(android.R.layout.simple_spinner_item);
+		fname.setAdapter(adapter_fname);
+		
+		ArrayAdapter<String> adapter_sname = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, getListNames());
+		adapter_sname.setDropDownViewResource(android.R.layout.simple_spinner_item);
+		sname.setAdapter(adapter_sname);
+	}
+}

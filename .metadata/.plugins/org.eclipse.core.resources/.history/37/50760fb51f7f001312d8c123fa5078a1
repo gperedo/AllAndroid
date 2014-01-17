@@ -1,0 +1,40 @@
+package com.gp.ultimateemailidengine.main;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+public class InputDataActivity extends Activity {
+
+	Spinner fname;
+	Spinner sname;
+	EditText separator;
+	EditText dname;
+	EditText beforeNameKeyword;
+	EditText afterNameKeyword;
+	
+	public List<String> getListNames(){
+		List<String> listNames = new ArrayList<String>();
+		
+		listNames.add("US - First Name");
+		listNames.add("US - Surname");
+		listNames.add("Philippines - First Name");
+		listNames.add("Philippines - Surname");
+		listNames.add("UK - First Name");
+		listNames.add("UK - Surname");
+		listNames.add("India - First Name");
+		listNames.add("India - Surname");
+		listNames.add("Keyword");
+		
+		return listNames;
+	}
+
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.inputdata_activity);
+	}
+}

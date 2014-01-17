@@ -1,0 +1,7 @@
+package com.gp.ultimateemailidengine.model;
+
+import android.app.DialogFragment;
+
+public class RenameDialogFragment extends DialogFragment {
+
+}

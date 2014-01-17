@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gp.ultimateemailidengine.main"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light" >
+        <activity
+            android:name=".CompLogoSplash"
+            android:label="@string/app_name" 
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--  -->
+        <activity
+            android:name=".MyMain"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name=".InputDateActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        
+        <activity
+            android:name=".SelectNames"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        
+        <activity
+            android:name=".SelectDomainName"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        
+        <activity
+            android:name=".SelectKeyword"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        
+        <activity
+            android:name=".GenerateEmails"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+    </application>
+    
+    <!-- Internet Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+ 
+    <!-- Network State Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <!-- External storage Permissions -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+</manifest>
