@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;drawable&apos;&#x0D;&#x0A;- Original project: &apos;com.gp.ultimateemailidengine&apos;&#x0D;&#x0A;- Destination element: &apos;drawable&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     custom_button_selected.xml&#x0D;&#x0A;     custom_button_selector.xml&#x0D;&#x0A;     custom_button_normal.xml" description="Copy files" element1="res/drawable/custom_button_selected.xml" element2="res/drawable/custom_button_selector.xml" element3="res/drawable/custom_button_normal.xml" files="3" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1390357493576" target="/UltimateEmailIDEngine/res/drawable" units="0" version="1.0"/>
+</session>

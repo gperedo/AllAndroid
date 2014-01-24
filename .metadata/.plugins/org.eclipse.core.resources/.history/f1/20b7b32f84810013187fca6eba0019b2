@@ -1,0 +1,5 @@
+package com.gp.expandablelistview;
+
+public class ExpandableListAdapter extends BaseExpandableListAdapter{
+
+}
